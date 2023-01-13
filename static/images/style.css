@@ -1,0 +1,240 @@
+:root {
+    --border-radius: 25px;
+}
+
+.main_header {
+  position: absolute;
+  left: 100px;
+  top: 40%;
+  border-radius: 10%;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+.result{
+    font-style: oblique;
+    text-align: center;
+    text-decoration-style: solid;
+    color: black;
+    border: #303030 2px;
+    text-shadow: 2px 2px #ff0000;
+}
+
+body {
+    user-select: none;
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.slot {
+    min-height: 82px;
+    min-width: 82px;
+    margin: 0px;
+    border-radius: var(--border-radius);
+    background: #f0e4be;
+
+}
+
+.slot:empty {
+  margin: 0px;
+  border-radius: var(--border-radius);
+  background: #e6cfad;
+  opacity: 0.5
+}
+.ball {
+    margin: 15px;
+    position: relative;
+
+}
+.ball > img {
+    display: block;
+    width: 50px;
+}
+
+.color_to_match {
+    text-align: center;
+
+}
+
+.color_to_match > img {
+    display: inline-block;
+    width: 50px;
+    margin: auto;
+    background: #ffffff;
+    border-radius: var(--border-radius);
+    overflow: auto;
+}
+
+h3, h2 {
+    display: inline-block;
+    padding-right: 15px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+h4 {
+    display: inline-block;
+    padding-right: 15px;
+    padding-bottom: 20px;
+    font-weight: bold;
+    position: fixed; top:400px; right:300px;
+}
+
+.all_balls {
+    margin: auto;
+    position: center;
+    display: flex;
+    max-width: 360px;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 150px;
+    border: 4px dashed #cdcdcd;
+    border-radius: var(--border-radius);
+    background: lightgoldenrodyellow;
+}
+
+div {
+    text-align: center;
+}
+
+
+.highlight:empty {
+    background-image: url("cross.png");
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 90%;
+}
+
+.game_over {
+    z-index: 10;
+    text-align: center;
+    font-family: "Fira Code";
+    color: #ffffff;
+    font-size: 35px;
+    padding: 20px;
+    background: #3b3631 center;
+    justify-content: center;
+    position: absolute;
+    margin: 110px;
+    border-radius: var(--border-radius);
+}
+
+.submit_score {
+    z-index: 10;
+    text-align: center;
+    align-items: center;
+    background-color: #3b3b3b;
+    border-radius: 4px;
+    position: fixed; bottom:200px; left:898px;
+}
+
+
+button {
+  text-align: center;
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #72b425;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.button:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.footer #team {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #303030;
+    color: white;
+    text-align: center;
+}
+#about{
+    font-family: 'Gill Sans Extrabold';
+    font-size: 20px;
+    font-weight: bold;
+    font-align: center;
+    margin-left:200px;
+    margin-right:200px;
+}
+
+#about_header{
+    font-family: 'Gill Sans Extrabold';
+    font-size: 40px;
+    font-weight: bold;
+}
+#cursive{
+    font-family: 'Gill Sans Extrabold',cursive;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.reset {
+    position: fixed; bottom:420px; right:250px;
+}
+
+#score_table {
+  border-collapse: collapse;
+  width: 20%;
+}
+
+#score_table td, score_table th{
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 30px;
+  font-style: oblique;
+    text-align: center;
+    text-decoration-style: solid;
+    color: black;
+    text-shadow: 2px 2px #ff0000;
+}
+
+#score_table th{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  width: 5px;
+  text-align: center;
+  background-color: #3cabff;
+  color: white;
+  font-size: 20px;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
