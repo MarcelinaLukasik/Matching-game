@@ -27,8 +27,8 @@ function ballSpawn(){
 
     let randomBallColor = ballImgList[Math.floor(Math.random() * ballImgList.length)];
     let freeSlot = false;
-    while (freeSlot == false) {                                                     // gets random slot, checks slot for children(balls),
-        let randomSlot = allSlots[Math.floor(Math.random() * allSlots.length)];   // if randomSlot is empty returns true and ends the loop
+    while (freeSlot == false) {    
+        let randomSlot = allSlots[Math.floor(Math.random() * allSlots.length)];
         let slotChildren = randomSlot.children;
         if (randomSlot.nodeName == "DIV" && slotChildren.length == 0) {
             freeSlot = true;
@@ -42,7 +42,7 @@ function ballSpawn(){
 }
 
 function ballNames(randomBallColor, newBall) {
-    if ( randomBallColor.includes("Orange")){    //sets the title for ball, used later to check when 3 balls match
+    if ( randomBallColor.includes("Orange")){
         newBall.title = "Orange";
     }
     else if ( randomBallColor.includes("Blue")) {
@@ -104,7 +104,7 @@ function handleDrop(ev) {
     }
     const id = ev.dataTransfer.getData("text/plain");
     let divWithImg = document.getElementById(id);
-    parent.appendChild(divWithImg); // appends ball to the slot
+    parent.appendChild(divWithImg);
     ev.preventDefault();
     ballSpawn();
     initElement();
@@ -118,7 +118,7 @@ function handleDragOver(ev) {
 function getBallsList() {
     colorList = [];
     let allSlots = document.querySelectorAll('.slot');
-    for ( const slot of allSlots){    // creates list of "X" when slot is empty, and "color-name"(from 'title') when ball is in slot
+    for ( const slot of allSlots){
         let ball = slot.firstChild;
         if ( ball != null){
             let ballColor = ball.getAttribute('title');
@@ -133,27 +133,27 @@ function getBallsList() {
 
 function matchBalls(allSlots) {
     let currentColor = document.getElementById('ColorToMatch').title;
-    for ( let i = 0; i < (allSlots.length -2); i++) {                                     // for loop iterates over every slot
-         if (i === 2 || i === 3 || i === 6 || i === 7 || i === 10 || i === 11 || i === 14){      // skip slots, where result is 3 balls next to each other but not displayed in a row on page
+    for ( let i = 0; i < (allSlots.length -2); i++) {
+         if (i === 2 || i === 3 || i === 6 || i === 7 || i === 10 || i === 11 || i === 14){
             if ( colorList[i] === currentColor && colorList[i] === colorList[i +1] && colorList[i+1] === colorList[i+2]
                 && colorList[i] !== "X" ) {
             continue;
         }
     }
-        else if (i !== 1 && i !== 5 && i !== 9 && i !== 13  // skip slots, where result is 4 balls next to each other but not displayed in a row on page
+        else if (i !== 1 && i !== 5 && i !== 9 && i !== 13
              && colorList[i] === currentColor && colorList[i] === colorList[i +1] // checks for 4 in a row
              && colorList[i+1] === colorList[i+2] && colorList[i+2] === colorList[i+3] && colorList[i] !== "X") {
             points += 20;
             let slot_count = 4
             highlights(allSlots, i, slot_count);
-            allSlots[i].removeChild(allSlots[i].firstChild);              // delete ball
+            allSlots[i].removeChild(allSlots[i].firstChild);
             allSlots[i +1].removeChild(allSlots[i +1].firstChild);
             allSlots[i +2].removeChild(allSlots[i +2].firstChild);
             allSlots[i +3].removeChild(allSlots[i +3].firstChild);
             colorToMatchChange();
             getBallsList();
          }
-        else if (colorList[i] === currentColor && colorList[i] === colorList[i +1] && colorList[i+1] === colorList[i+2]  // checks for 3 in a row
+        else if (colorList[i] === currentColor && colorList[i] === colorList[i +1] && colorList[i+1] === colorList[i+2]
              && colorList[i] !== "X") {
             points += 10;
             let slot_count = 3
@@ -162,10 +162,10 @@ function matchBalls(allSlots) {
             allSlots[i +1].removeChild(allSlots[i +1].firstChild);
             allSlots[i +2].removeChild(allSlots[i +2].firstChild);
             colorToMatchChange();
-            getBallsList(); // checks if there are already some matches after new color to match is assigned
+            getBallsList();
         }
     }
-    let colorSet = new Set(colorList);  // if board is empty, spawn new ball
+    let colorSet = new Set(colorList);
          if (colorSet.size == 1) {
             ballSpawn();
             initElement();
@@ -210,8 +210,8 @@ function colorToMatchChange() {
     document.getElementById('NextColor').src = randomColor;
     let ballColorDiv = document.getElementById('ColorToMatch');
     let nextColorDiv = document.getElementById('NextColor');
-    ballNames(currentColor, ballColorDiv);  // set the title for current color
-    ballNames(randomColor, nextColorDiv);   // set the title for next color
+    ballNames(currentColor, ballColorDiv);
+    ballNames(randomColor, nextColorDiv);
 }
 
 function gameOverCheck() {
